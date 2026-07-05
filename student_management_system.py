@@ -12,6 +12,7 @@ def show_students(names, ielts_scores):
         print(f"Student : {names[i]}")
         print(f"IELTS : {ielts_scores[i]}")
         print(f"Result : {result}")
+        print("---------------")
 
 def add_student(names, ielts_scores):
     add_name = input("Enter student's name: ")
@@ -49,20 +50,17 @@ def search_student(names, ielts_scores):
         index = names.index(search_name)
         score = ielts_scores[index]
         result = get_result(score)
+
+        print("===== Student Found =====")
+        print()
         print(f"Name : {search_name}")
         print(f"IELTS : {score}")
         print(f"Result : {result}")
+        print()
+        print("---------------")
 
     else:
         print("Student not found.")
-
-    print("===== Student List =====")
-    print()
-    print(f"Name : {names}") 
-    print(f"IELTS : {ielts_scores}")
-    print(f"Result : {result}")
-    print()
-    print("---------------")
 
 choice = 0
 
@@ -84,7 +82,7 @@ while choice != 5:
         add_student(names, ielts_scores)
 
     elif choice == 3:
-        remove_student(names)
+        remove_student(names, ielts_scores)
 
     elif choice == 4:
         search_student(names, ielts_scores)
