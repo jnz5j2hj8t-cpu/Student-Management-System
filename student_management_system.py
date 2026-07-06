@@ -81,9 +81,29 @@ def update_score(names, ielts_scores):
     else:
         print("Student not found.")
 
+def show_statistics(names, ielts_scores):
+    print()
+    print("===== Statistics =====")
+    print()
+    number_students = len(names)
+    print(f"Number of students : {number_students}")
+    print()
+    show_average_score(ielts_scores)
+    print()
+    highest_score = max(ielts_scores)
+    highest_index = ielts_scores.index(highest_score)
+    print(f"Highest IELTS Score : {highest_score}")
+    print(f"Student            : {names[highest_index]}")
+    print()
+    lowest_score = min(ielts_scores)
+    lowest_index = ielts_scores.index(lowest_score)
+    print(f"Lowest IELTS Score : {lowest_score}")
+    print(f"Student            : {names[lowest_index]}")
+
+
 choice = 0
 
-while choice != 7:
+while choice != 8:
     print()
     print("===== Student Management System =====")
     print()
@@ -93,7 +113,8 @@ while choice != 7:
     print("4. Search student")
     print("5. Show average IELTS score")
     print("6. Update IELTS score")
-    print("7. Exit")
+    print("7. Show statistics")
+    print("8. Exit")
     print()
     choice = int(input("Choose: "))
 
@@ -116,7 +137,10 @@ while choice != 7:
         update_score(names, ielts_scores)
 
     elif choice == 7:
+        show_statistics(names, ielts_scores)
+
+    elif choice == 8:
         print("Goodbye!")
-    
+
     else:
         print("Invalid choice.")
