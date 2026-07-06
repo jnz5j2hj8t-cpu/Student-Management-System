@@ -100,10 +100,26 @@ def show_statistics(names, ielts_scores):
     print(f"Lowest IELTS Score : {lowest_score}")
     print(f"Student            : {names[lowest_index]}")
 
+def save_to_file(names, ielts_scores):
+    with open("student.txt", "w") as file:
+        for i in range(len(names)):
+            file.write(f"{names[i]}, {ielts_scores[i]}\n")
+    
+    print("Data saved successfully!")
+
+def load_from_file(names, ielts_scores):
+    names.clear()
+    ielts_scores.clear()
+    with open("student.txt", "r") as file:
+        for line in file:
+            parts = line.split(",")
+            names.append(parts[0])
+            ielts_scores.append(float(parts[1]))
+    print("Data loaded successfully!")
 
 choice = 0
 
-while choice != 8:
+while choice != 10:
     print()
     print("===== Student Management System =====")
     print()
@@ -114,7 +130,9 @@ while choice != 8:
     print("5. Show average IELTS score")
     print("6. Update IELTS score")
     print("7. Show statistics")
-    print("8. Exit")
+    print("8. Save to file")
+    print("9. Load from file")
+    print("10. Exit")
     print()
     choice = int(input("Choose: "))
 
@@ -140,7 +158,14 @@ while choice != 8:
         show_statistics(names, ielts_scores)
 
     elif choice == 8:
+        save_to_file(names, ielts_scores)
+
+    elif choice == 9:
+        load_from_file(names, ielts_scores)
+
+    elif choice == 10:
         print("Goodbye!")
 
     else:
         print("Invalid choice.")
+    

@@ -1,0 +1,3 @@
+Eri, 6.5
+Momoko, 7.0
+John, 5.5
