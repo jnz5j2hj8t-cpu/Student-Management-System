@@ -18,7 +18,7 @@ This project allows users to manage students and their IELTS scores.
 
 ## Screenshot
 
-![Student Management System](Screenshot.png)
+![Student Management System](screenshot.png)
 
 ## Tecchnologies
 
