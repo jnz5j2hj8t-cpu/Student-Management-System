@@ -9,7 +9,8 @@ def show_students(names, ielts_scores):
         score = ielts_scores[i]
         result = get_result(score)
 
-        print(f"Student : {names[i]}")
+        print(f"Student {i + 1}")
+        print(f"Name : {names[i]}")
         print(f"IELTS : {ielts_scores[i]}")
         print(f"Result : {result}")
         print("---------------")
@@ -62,16 +63,37 @@ def search_student(names, ielts_scores):
     else:
         print("Student not found.")
 
+def show_average_score(ielts_scores):
+    average_scores = sum(ielts_scores) / len(ielts_scores)
+    rounded_average_scores = round(average_scores, 2)
+    print(f"Average IELTS Score: {rounded_average_scores}")
+
+def update_score(names, ielts_scores):
+    name = input("Enter student's name: ")
+    
+    if name in names:
+        new_score = float(input("Enter new IELTS score: "))
+        index = names.index(name)
+        ielts_scores[index] = new_score
+
+        print("Score updated!")
+    
+    else:
+        print("Student not found.")
+
 choice = 0
 
-while choice != 5:
+while choice != 7:
+    print()
     print("===== Student Management System =====")
     print()
     print("1. Show students")
     print("2. Add student")
     print("3. Remove student")
     print("4. Search student")
-    print("5. Exit")
+    print("5. Show average IELTS score")
+    print("6. Update IELTS score")
+    print("7. Exit")
     print()
     choice = int(input("Choose: "))
 
@@ -88,6 +110,12 @@ while choice != 5:
         search_student(names, ielts_scores)
 
     elif choice == 5:
+        show_average_score(ielts_scores)
+
+    elif choice == 6:
+        update_score(names, ielts_scores)
+
+    elif choice == 7:
         print("Goodbye!")
     
     else:
